@@ -32,12 +32,9 @@ function Install-NerdFonts {
             $zipFilePath = "$env:TEMP\${FontName}.zip"
             $extractPath = "$env:TEMP\${FontName}"
 
-            $webClient = New-Object System.Net.WebClient
-            $webClient.DownloadFileAsync((New-Object System.Uri($fontZipUrl)), $zipFilePath)
 
-            while ($webClient.IsBusy) {
-                Start-Sleep -Seconds 2
-            }
+$webClient = New-Object System.Net.WebClient
+$webClient.DownloadFile((New-Object System.Uri($fontZipUrl)), $zipFilePath)
 
             Expand-Archive -Path $zipFilePath -DestinationPath $extractPath -Force
             $destination = (New-Object -ComObject Shell.Application).Namespace(0x14)
