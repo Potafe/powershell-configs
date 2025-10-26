@@ -21,7 +21,7 @@ function Install-NerdFonts {
     param (
         [string]$FontName = "JetBrainsMono",
         [string]$FontDisplayName = "JetBrainsMono",
-        [string]$Version = "2.304"
+        [string]$Version = "3.4.0"
     )
 
     try {
